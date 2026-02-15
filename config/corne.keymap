@@ -5,13 +5,9 @@
 
  */
 
-#define ZMK_POINTING_DEFAULT_MOVE_VAL 1000
-#define ZMK_POINTING_DEFAULT_SCRL_VAL 20
-
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/pointing.h>
 
 #define DEF 0
 #define LWR 1
@@ -26,146 +22,149 @@
 &sk {
     release-after-ms = <2000>;
     quick-release;
-
-    /delete-property/ ignore-modifiers;
 };
 
 / {
-    combos {
-        combo_screenshot {
-            timeout-ms = <50>;
-            key-positions = <19 20>;
-            bindings = <&kp RG(S) >;
-        };
-
-        combo_undo {
-            timeout-ms = <50>;
-            key-positions = <20 21>;
-            bindings = <&kp LC(Z) >;
-        };
-
-        combo_cut {
-            timeout-ms = <50>;
-            key-positions = <8 7>;
-            bindings = <&sk RCTRL >;
-        };
-
-        combo_copy {
-            timeout-ms = <50>;
-            key-positions = <15 16>;
-            bindings = <&kp LC(C) >;
-        };
-
-        combo_paste {
-            timeout-ms = <50>;
-            key-positions = <4 3>;
-            bindings = <&kp LC(V) >;
-        };
-
-        compatible = "zmk,combos";
-
-        combo_left_ctrlshift {
-            timeout-ms = <50>;
-            key-positions = <27 28>;
-            bindings = <&kp LS(LCTRL) >;
-        };
-
-        combo_left_ctrlalt {
-            timeout-ms = <50>;
-            key-positions = <27 26>;
-            bindings = <&kp LA(LCTRL) >;
-        };
-
-        combo_leftshiftalt {
-            timeout-ms = <50>;
-            key-positions = <28 26>;
-            bindings = <&kp LS(LALT) >;
-        };
-
-        combo_lefctrltshiftalt {
-            timeout-ms = <50>;
-            key-positions = <28 26 27>;
-            bindings = <&kp LS(LA(LCTRL))>;
-        };
-
-        combo_right_ctrlshift {
-            timeout-ms = <50>;
-            key-positions = <31 32>;
-            bindings = <&kp LS(LCTRL) >;
-        };
-
-        combo_right_ctrlalt {
-            timeout-ms = <50>;
-            key-positions = <32 33>;
-            bindings = <&kp LA(LCTRL) >;
-        };
-
-        combo_right_shiftalt {
-            timeout-ms = <50>;
-            key-positions = <31 33>;
-            bindings = <&kp LS(LALT) >;
-        };
-
-        combo_right_ctrlshiftalt {
-            timeout-ms = <50>;
-            key-positions = <31 32 33>;
-            bindings = <&kp LS(LA(LCTRL))>;
-        };
-    };
+    combos { compatible = "zmk,combos"; };
 };
 
 / {
-    macros {
-        vim_past_from_zero: vim_past_from_zero {
-            label = "vimpastzero";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <40>;
-            tap-ms = <40>;
-            bindings = <&kp LS(SQT) &kp N0 &kp P>;
-        };
-
-        vim_past_from_system: vim_past_from_system {
-            label = "vimpastsystem";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <40>;
-            tap-ms = <40>;
-            bindings = <&kp LS(SQT) &kp LS(N8) &kp P>;
-        };
-    };
-
     behaviors {
-        td_f112: tap_dance_f112 {
+        td_1_11: td_1_11 {
             compatible = "zmk,behavior-tap-dance";
-            label = "td_f112";
+            label = "TD_1_11";
             #binding-cells = <0>;
+            bindings = <&kp LC(KP_N1)>, <&kp LA(LC(KP_N1))>;
             tapping-term-ms = <300>;
-            bindings = <&kp F11>, <&kp F12>;
         };
 
-        td_78: tap_dance_78 {
+        td_2_12: td_2_12 {
             compatible = "zmk,behavior-tap-dance";
-            label = "td_78";
+            label = "TD_2_12";
             #binding-cells = <0>;
+            bindings = <&kp LC(KP_N2)>, <&kp LA(LC(KP_N2))>;
             tapping-term-ms = <300>;
-            bindings = <&kp LC(KP_N7)>, <&kp LC(KP_N8)>;
         };
 
-        td_49: tap_dance_49 {
+        td_3_13: td_3_13 {
             compatible = "zmk,behavior-tap-dance";
-            label = "td_49";
+            label = "TD_3_13";
             #binding-cells = <0>;
+            bindings = <&kp LC(KP_N3)>, <&kp LA(LC(KP_N3))>;
             tapping-term-ms = <300>;
-            bindings = <&kp LC(KP_N4)>, <&kp LC(KP_N9)>;
         };
 
-        td_50: tap_dance_50 {
+        td_4_14: td_4_14 {
             compatible = "zmk,behavior-tap-dance";
-            label = "td_50";
+            label = "TD_4_14";
             #binding-cells = <0>;
+            bindings = <&kp LC(KP_N4)>, <&kp LA(LC(KP_N4))>;
             tapping-term-ms = <300>;
-            bindings = <&kp LC(KP_N5)>, <&kp LC(KP_N0)>;
+        };
+
+        td_5_15: td_5_15 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_5_15";
+            #binding-cells = <0>;
+            bindings = <&kp LC(KP_N5)>, <&kp LA(LC(KP_N5))>;
+            tapping-term-ms = <300>;
+        };
+
+        td_6_16: td_6_16 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_6_16";
+            #binding-cells = <0>;
+            bindings = <&kp LC(KP_N6)>, <&kp LA(LC(KP_N6))>;
+            tapping-term-ms = <300>;
+        };
+
+        td_7_17: td_7_17 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_7_17";
+            #binding-cells = <0>;
+            bindings = <&kp LC(KP_N7)>, <&kp LA(LC(KP_N7))>;
+            tapping-term-ms = <300>;
+        };
+
+        td_8_18: td_8_18 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_8_18";
+            #binding-cells = <0>;
+            bindings = <&kp LC(KP_N8)>, <&kp LA(LC(KP_N8))>;
+            tapping-term-ms = <300>;
+        };
+
+        td_9_19: td_9_19 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_9_19";
+            #binding-cells = <0>;
+            bindings = <&kp LC(KP_N9)>, <&kp LA(LC(KP_N9))>;
+            tapping-term-ms = <300>;
+        };
+
+        td_10_20: td_10_20 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_10_20";
+            #binding-cells = <0>;
+            bindings = <&kp LC(KP_N0)>, <&kp LA(LC(KP_N0))>;
+            tapping-term-ms = <300>;
+        };
+
+        super_key_behavior: super_key_behavior {
+            compatible = "zmk,behavior-hold-tap";
+            label = "SUPER_KEY_BEHAVIOR";
+            bindings = <&kp>, <&kp>;
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <280>;
+            require-prior-idle-ms = <175>;
+            hold-trigger-key-positions = <35>;
+            quick-tap-ms = <175>;
+        };
+
+        hold_tap_advanced: hold_tap_advanced {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOLD_TAP_ADVANCED";
+            bindings = <&kp>, <&kp>;
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <280>;
+            require-prior-idle-ms = <200>;
+            quick-tap-ms = <175>;
+        };
+
+        mt_advanced: mt_advanced {
+            compatible = "zmk,behavior-hold-tap";
+            label = "MT_ADVANCED";
+            bindings = <&mo>, <&kp>;
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <280>;
+            require-prior-idle-ms = <200>;
+            quick-tap-ms = <175>;
+        };
+    };
+
+    macros {
+        claude_resume: reset {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp FSLH &kp R &kp E &kp S &kp U &kp M &kp E>;
+            label = "RESET";
+        };
+
+        claude_status: claude_status {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp FSLH &kp S &kp T &kp A &kp T &kp U &kp S>;
+            label = "CLAUDE_STATUS";
+        };
+
+        docker_comp: docker_comp {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&none &kp D &kp O &kp C &kp K &kp E &kp R &kp MINUS &kp C &kp O &kp M &kp P &kp O &kp S &kp E>;
+            label = "DOCKER_COMP";
         };
     };
 
@@ -173,116 +172,74 @@
         compatible = "zmk,keymap";
 
         default_layer {
-            // -----------------------------------------------------------------------------------------
-            // |none  | lang/meh    |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  |  [   | none |
-            //        | ctrl+tab    |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  | '    |
-            //        | consoles    |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | \    |
-            //                           | SHIFT/DEL | SPC | LWR/TAB |   | ADJ/ESC | RSE/ENT| SHIFT/BackSPACE |
-
             bindings = <
-&mt LG(LS(LA(LCTRL))) F12  &kp Q  &kp W  &kp E           &kp R      &kp T        &kp Y      &kp U      &kp I            &kp O    &kp P     &kp LBKT
-&mt LALT LC(GRAVE)         &kp A  &kp S  &kp D           &kp F      &kp G        &kp H      &kp J      &kp K            &kp L    &kp SEMI  &kp SQT
-&mt LCTRL RG(SPACE)        &kp Z  &kp X  &kp C           &kp V      &kp B        &kp N      &kp M      &kp COMMA        &kp DOT  &kp FSLH  &kp BSLH
-                                         &mt LSHIFT DEL  &kp SPACE  &lt 1 TAB    &lt 3 ESC  &lt 2 RET  &mt RSHIFT BSPC
+&mt LG(LS(LA(LCTRL))) LC(V)  &super_key_behavior LG(W) Q  &kp W                          &kp E                        &kp R                            &super_key_behavior LG(LS(Z)) T  &super_key_behavior LG(Y) Y     &super_key_behavior LA(U) U       &kp I                           &super_key_behavior LG(O) O       &kp P     &super_key_behavior LS(LG(T)) LBKT
+&kp LC(C)                    &super_key_behavior LG(A) A  &kp S                          &super_key_behavior LG(D) D  &super_key_behavior LG(LS(F)) F  &kp G                            &kp H                           &kp J                             &kp K                           &kp L                             &kp SEMI  &kp SQT
+&kp RG(SPACE)                &kp Z                        &hold_tap_advanced LEFT_ALT X  &hold_tap_advanced LCTRL C   &hold_tap_advanced LEFT_SHIFT V  &hold_tap_advanced LEFT_GUI B    &hold_tap_advanced RIGHT_GUI N  &hold_tap_advanced RIGHT_SHIFT M  &hold_tap_advanced RCTRL COMMA  &hold_tap_advanced RIGHT_ALT DOT  &kp FSLH  &kp BSLH
+                                                                                         &mt LSHIFT DEL               &mt_advanced 4 SPACE             &lt 1 TAB                        &lt 3 ESC                       &lt 2 RET                         &mt RSHIFT BSPC
             >;
         };
 
         lower_layer {
-            // -----------------------------------------------------------------------------------------
-            // |     |  vol_up  |  PG_DN    |  PG_UP  |  INS    |  HOME   |  END    |   | none |  7  |  8  |  9  | none| none| none |
-            //       |  mute    |  CTRL(1)  |  CTRL(2)|  CTRL(3)|  CTRL(4)|  CTRL(5)|   | none |  4  |  5  |  6  |  .  | none|
-            //       |  vol_donw|  CTRL(6)  |  ALT    |  CTRL   |  SHIFT  |CTRL(7/8)|   | none |  1  |  2  |  3  |  0  |     |
-            //                                  | TRANS |  TRANS   | TRANS |            | TRANS | TRANS  | TRANS |
-
             bindings = <
-&kp K_VOL_UP      &kp K_NEXT     &kp K_PREV     &kp INS        &tog 7         &kp LEFT_GUI    &kp LA(N1)   &kp N7  &kp N8    &kp N9  &none    &kp LC(LA(F2))
-&kp K_PLAY_PAUSE  &kp LC(KP_N1)  &kp LC(KP_N2)  &kp LC(KP_N3)  &td_49         &td_50          &kp LA(F11)  &kp N4  &kp N5    &kp N6  &kp DOT  &kp LA(LC(F3))
-&kp K_VOL_DN      &kp LC(KP_N6)  &kp ESCAPE     &kp RET        &kp BACKSPACE  &td_78          &kp LA(F12)  &kp N1  &kp N2    &kp N3  &kp N0   &none
-                                                &lt 4 TAB      &trans         &trans          &trans       &trans  &kp BSPC
+&kp LG(P)  &none     &kp LG(F4)  &kp LG(TAB)  &kp LG(G)  &kp LG(S)  &none   &kp N7  &kp N8    &kp N9  &none    &none
+&kp LG(N)  &td_1_11  &td_2_12    &td_3_13     &td_4_14   &td_5_15   &none   &kp N4  &kp N5    &kp N6  &kp DOT  &none
+&kp LG(I)  &td_6_16  &td_7_17    &td_8_18     &td_9_19   &td_10_20  &none   &kp N1  &kp N2    &kp N3  &kp N0   &none
+                                  &lt 5 TAB    &trans     &trans     &trans  &trans  &kp BSPC
             >;
         };
 
         raise_layer {
-            // -----------------------------------------------------------------------------------------
-            // |none | none |  =   |  +  |  none  |  none  |  none  |         | shift F10| shift alt F9| run line pycharm  |-   | _   | ]      |none|
-            //       | none |  !   |  @  |  #     |  $     |  %     |         | ^            | &           |  *                | (  | )   | none   |
-            //       | none |  F1  | F2  |  F3    |  F4    |  F5    |         | F6           | F7          | F8                | F9 | F10 | F11 F12|
-            //                              | TRANS |  TRANS   | TRANS |        | TRANS | TRANS  | TRANS |
-
             bindings = <
-&none  &kp EQUAL   &kp LS(EQUAL)  &none       &none       &none         &kp LS((F10))  &kp LS(LA(F9))  &kp LS(LA(LC(F9)))  &kp MINUS   &kp LS(MINUS)  &kp RBKT
-&none  &kp LS(N1)  &kp LS(N2)     &kp LS(N3)  &kp LS(N4)  &kp LS(N5)    &kp LS(N6)     &kp LS(N7)      &kp LS(N8)          &kp LS(N9)  &kp LS(N0)     &none
-&none  &kp F1      &kp F2         &kp F3      &kp F4      &kp F5        &kp F6         &kp F7          &kp F8              &kp F9      &kp F10        &td_f112
-                                  &trans      &trans      &trans        &trans         &trans          &trans
+&none    &kp EQUAL   &kp LS(EQUAL)  &none       &none       &none       &kp LG(LS(P))  &none       &none       &kp MINUS   &kp LS(MINUS)  &kp RBKT
+&none    &kp LS(N1)  &kp LS(N2)     &kp LS(N3)  &kp LS(N4)  &kp LS(N5)  &kp LS(N6)     &kp LS(N7)  &kp LS(N8)  &kp LS(N9)  &kp LS(N0)     &none
+&kp F12  &kp F1      &kp F2         &kp F3      &kp F4      &kp F5      &kp F6         &kp F7      &kp F8      &kp F9      &kp F10        &kp F11
+                                    &trans      &trans      &trans      &trans         &trans      &trans
             >;
         };
 
         adjust_layer {
-            // -----------------------------------------------------------------------------------------
-            // | none | `    |CTRL(RIGHT)| none |none |GUI(W)|          |   none   |  none |  CAPS   |  none   |  vim_past   |  none             |  none |
-            //        | none | none      | none |none |none  |          |   LEFT   | DOWN  |  UP     | RIGHT   |  LT(HOME)   |  none             |
-            //        | none |  none     |GUI(X)|none |none  |          |   SHIFT  | MENU  |  CTRL   |  ALT    |  none       |   SHIFT CTRL F12  |
-            //           | TRANS |  GUI   | ace_jump_pycharm |        | TRANS | TRANS  | TRANS |
-
             bindings = <
-&kp GRAVE  &msc SCRL_UP    &mkp MB1        &mmv MOVE_UP    &mkp MB2         &kp LC(LA(F1))    &kp PG_UP  &kp PAGE_DOWN  &kp CAPS   &none      &vim_past_from_zero  &tog 0
-&none      &msc SCRL_DOWN  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &kp LA(LC(F2))    &kp LEFT   &kp DOWN       &kp UP     &kp RIGHT  &kp K_APP            &tog 5
-&none      &none           &none           &none           &kp LA(LC(F4))   &kp LA(LC(F3))    &trans     &kp HOME       &kp END    &trans     &none                &kp LS(LC(LA(O)))
-                                           &trans          &kp LGUI         &trans            &trans     &trans         &lt 4 TAB
+&kp GRAVE  &none  &none  &none   &none           &kp LC(LA(F1))  &none     &none     &none      &none      &none       &kp K_VOLUME_UP
+&none      &none  &none  &none   &none           &kp LA(LC(F2))  &kp LEFT  &kp DOWN  &kp UP     &kp RIGHT  &kp K_NEXT  &kp K_PP
+&kp TILDE  &none  &none  &none   &kp LA(LC(F4))  &kp LA(LC(F3))  &none     &kp HOME  &kp END    &none      &kp K_PREV  &kp K_VOL_DN
+                                           &trans          &sk LGUI         &trans          &trans    &trans    &lt 5 TAB
+            >;
+        };
+
+        macros {
+            bindings = <
+&trans  &trans  &trans          &trans        &trans  &claude_resume  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &claude_status  &docker_comp  &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans          &trans        &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans
+                                &trans        &trans  &trans          &trans  &trans  &trans
             >;
         };
 
         tech_layer {
             bindings = <
-&bootloader  &none         &none         &tog 7        &none         &tog 5          &none         &none         &none         &none         &none         &bootloader
-&bt BT_CLR   &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &bt BT_SEL 4  &bt BT_SEL 3  &bt BT_SEL 2  &bt BT_SEL 1  &bt BT_SEL 0  &bt BT_CLR
-&sys_reset   &none         &none         &none         &none         &none           &none         &none         &none         &none         &none         &sys_reset
-                                         &trans        &none         &trans          &none         &trans        &trans
+&bootloader  &none         &none         &none         &none         &tog 6        &none         &none         &none         &none         &none         &bootloader
+&bt BT_CLR   &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_SEL 4  &bt BT_SEL 3  &bt BT_SEL 2  &bt BT_SEL 1  &bt BT_SEL 0  &bt BT_CLR
+&sys_reset   &none         &none         &none         &none         &none         &none         &none         &none         &none         &none         &sys_reset
+                                         &trans        &none         &trans        &none         &trans        &trans
             >;
         };
 
         shooter {
             bindings = <
-&kp N1  &kp TAB    &kp Q  &kp W     &kp E      &kp R    &kp Y    &kp U      &kp I      &kp O    &kp P     &tog 5
-&kp N2  &kp LSHFT  &kp A  &kp S     &kp D      &kp F    &kp H    &kp J      &kp K      &kp L    &kp SEMI  &trans
-&kp N3  &kp LCTRL  &kp Z  &kp X     &kp C      &kp V    &kp N    &kp M      &kp COMMA  &kp DOT  &kp FSLH  &trans
-                          &kp LALT  &kp SPACE  &mo 6    &kp ESC  &kp ENTER  &kp BSPC
+&kp N1  &kp TAB    &kp Q  &kp W     &kp E      &kp R  &kp Y    &kp U      &kp I      &kp O    &kp P     &tog 6
+&kp N2  &kp LSHFT  &kp A  &kp S     &kp D      &kp F  &kp H    &kp J      &kp K      &kp L    &kp SEMI  &trans
+&kp N3  &kp LCTRL  &kp Z  &kp X     &kp C      &kp V  &kp N    &kp M      &kp COMMA  &kp DOT  &kp FSLH  &trans
+                          &kp LALT  &kp SPACE  &mo 7  &kp ESC  &kp ENTER  &kp BSPC
             >;
         };
 
         shooter2 {
             bindings = <
-&kp N4  &kp N7  &trans  &kp ESC  &kp M   &kp T     &trans  &trans  &trans  &trans  &trans  &trans
-&kp N5  &kp N8  &trans  &trans   &none   &kp G     &trans  &trans  &trans  &trans  &trans  &trans
-&kp N6  &kp N9  &trans  &trans   &trans  &kp B     &trans  &trans  &trans  &trans  &trans  &trans
-                        &tog 5   &trans  &trans    &trans  &trans  &trans
-            >;
-        };
-
-        GW {
-            bindings = <
-&kp N1  &kp N2  &kp V  &kp W      &kp E      &kp N7    &trans  &trans  &trans  &trans  &trans  &trans
-&kp N3  &kp N4  &kp A  &kp S      &kp D      &kp N8    &trans  &trans  &trans  &trans  &trans  &trans
-&kp N5  &kp N6  &none  &tog 7     &kp N0     &kp N9    &trans  &trans  &trans  &trans  &trans  &trans
-                       &lt 9 TAB  &kp SPACE  &mo 8     &trans  &trans  &trans
-            >;
-        };
-
-        GW2 {
-            bindings = <
-&kp F1  &kp F2  &none  &none       &kp M   &kp F7    &kp LC(N1)  &none   &trans  &trans  &trans  &kp LC(N4)
-&kp F3  &kp F4  &none  &none       &none   &kp F     &kp LC(N2)  &none   &trans  &trans  &trans  &kp LC(N5)
-&kp F5  &kp F6  &kp Z  &kp X       &kp C   &none     &kp LC(N3)  &trans  &trans  &trans  &trans  &kp LC(N6)
-                       &kp LC(N6)  &trans  &trans    &trans      &trans  &trans
-            >;
-        };
-
-        GW3 {
-            bindings = <
-&kp LC(N1)  &kp LC(N2)  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&kp LC(N3)  &kp LC(N4)  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&kp LC(N5)  &kp LC(N6)  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-                                &trans  &trans  &trans    &trans  &trans  &trans
+&kp N4  &kp N7  &trans  &kp ESC  &kp M   &kp T   &trans  &trans  &trans  &trans  &trans  &trans
+&kp N5  &kp N8  &trans  &trans   &none   &kp G   &trans  &trans  &trans  &trans  &trans  &trans
+&kp N6  &kp N9  &trans  &trans   &trans  &kp B   &trans  &trans  &trans  &trans  &trans  &trans
+                        &tog 6   &trans  &trans  &trans  &trans  &trans
             >;
         };
     };
