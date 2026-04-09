@@ -35,14 +35,7 @@
             label = "TD_1_11";
             #binding-cells = <0>;
             bindings = <&kp LC(KP_N1)>, <&kp LA(LC(KP_N1))>;
-            tapping-term-ms = <300>;
-        };
 
-        td_2_12: td_2_12 {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TD_2_12";
-            #binding-cells = <0>;
-            bindings = <&kp LC(KP_N2)>, <&kp LA(LC(KP_N2))>;
             tapping-term-ms = <300>;
         };
 
@@ -51,6 +44,7 @@
             label = "TD_3_13";
             #binding-cells = <0>;
             bindings = <&kp LC(KP_N3)>, <&kp LA(LC(KP_N3))>;
+
             tapping-term-ms = <300>;
         };
 
@@ -59,6 +53,16 @@
             label = "TD_4_14";
             #binding-cells = <0>;
             bindings = <&kp LC(KP_N4)>, <&kp LA(LC(KP_N4))>;
+
+            tapping-term-ms = <300>;
+        };
+
+        td_2_12: td_2_12 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TD_2_12";
+            #binding-cells = <0>;
+            bindings = <&kp LC(KP_N2)>, <&kp LA(LC(KP_N2))>;
+
             tapping-term-ms = <300>;
         };
 
@@ -67,6 +71,7 @@
             label = "TD_5_15";
             #binding-cells = <0>;
             bindings = <&kp LC(KP_N5)>, <&kp LA(LC(KP_N5))>;
+
             tapping-term-ms = <300>;
         };
 
@@ -75,6 +80,7 @@
             label = "TD_6_16";
             #binding-cells = <0>;
             bindings = <&kp LC(KP_N6)>, <&kp LA(LC(KP_N6))>;
+
             tapping-term-ms = <300>;
         };
 
@@ -83,6 +89,7 @@
             label = "TD_7_17";
             #binding-cells = <0>;
             bindings = <&kp LC(KP_N7)>, <&kp LA(LC(KP_N7))>;
+
             tapping-term-ms = <300>;
         };
 
@@ -91,6 +98,7 @@
             label = "TD_8_18";
             #binding-cells = <0>;
             bindings = <&kp LC(KP_N8)>, <&kp LA(LC(KP_N8))>;
+
             tapping-term-ms = <300>;
         };
 
@@ -99,6 +107,7 @@
             label = "TD_9_19";
             #binding-cells = <0>;
             bindings = <&kp LC(KP_N9)>, <&kp LA(LC(KP_N9))>;
+
             tapping-term-ms = <300>;
         };
 
@@ -107,6 +116,7 @@
             label = "TD_10_20";
             #binding-cells = <0>;
             bindings = <&kp LC(KP_N0)>, <&kp LA(LC(KP_N0))>;
+
             tapping-term-ms = <300>;
         };
 
@@ -114,9 +124,10 @@
             compatible = "zmk,behavior-hold-tap";
             label = "SUPER_KEY_BEHAVIOR";
             bindings = <&kp>, <&kp>;
+
             #binding-cells = <2>;
             flavor = "tap-preferred";
-            tapping-term-ms = <280>;
+            tapping-term-ms = <240>;
             require-prior-idle-ms = <175>;
             hold-trigger-key-positions = <35>;
             quick-tap-ms = <175>;
@@ -126,9 +137,10 @@
             compatible = "zmk,behavior-hold-tap";
             label = "HOLD_TAP_ADVANCED";
             bindings = <&kp>, <&kp>;
+
             #binding-cells = <2>;
             flavor = "tap-preferred";
-            tapping-term-ms = <280>;
+            tapping-term-ms = <240>;
             require-prior-idle-ms = <200>;
             quick-tap-ms = <175>;
         };
@@ -137,6 +149,7 @@
             compatible = "zmk,behavior-hold-tap";
             label = "MT_ADVANCED";
             bindings = <&mo>, <&kp>;
+
             #binding-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <280>;
@@ -163,8 +176,15 @@
         docker_comp: docker_comp {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&none &kp D &kp O &kp C &kp K &kp E &kp R &kp MINUS &kp C &kp O &kp M &kp P &kp O &kp S &kp E>;
+            bindings = <&kp D &kp O &kp C &kp K &kp E &kp R &kp MINUS &kp C &kp O &kp M &kp P &kp O &kp S &kp E>;
             label = "DOCKER_COMP";
+        };
+
+        clear: clear {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp C &kp L &kp E &kp A &kp R>;
+            label = "CLEAR";
         };
     };
 
@@ -173,19 +193,19 @@
 
         default_layer {
             bindings = <
-&mt LG(LS(LA(LCTRL))) LC(V)  &super_key_behavior LG(W) Q  &kp W                          &kp E                        &kp R                            &super_key_behavior LG(LS(Z)) T  &super_key_behavior LG(Y) Y     &super_key_behavior LA(U) U       &kp I                           &super_key_behavior LG(O) O       &kp P     &super_key_behavior LS(LG(T)) LBKT
-&kp LC(C)                    &super_key_behavior LG(A) A  &kp S                          &super_key_behavior LG(D) D  &super_key_behavior LG(LS(F)) F  &kp G                            &kp H                           &kp J                             &kp K                           &kp L                             &kp SEMI  &kp SQT
-&kp RG(SPACE)                &kp Z                        &hold_tap_advanced LEFT_ALT X  &hold_tap_advanced LCTRL C   &hold_tap_advanced LEFT_SHIFT V  &hold_tap_advanced LEFT_GUI B    &hold_tap_advanced RIGHT_GUI N  &hold_tap_advanced RIGHT_SHIFT M  &hold_tap_advanced RCTRL COMMA  &hold_tap_advanced RIGHT_ALT DOT  &kp FSLH  &kp BSLH
-                                                                                         &mt LSHIFT DEL               &mt_advanced 4 SPACE             &lt 1 TAB                        &lt 3 ESC                       &lt 2 RET                         &mt RSHIFT BSPC
+&mt LG(LS(LA(LCTRL))) LC(V)  &super_key_behavior LG(W) Q      &kp W                          &kp E                        &kp R                            &super_key_behavior LG(LS(Z)) T  &super_key_behavior LG(Y) Y     &super_key_behavior LA(U) U       &kp I                           &super_key_behavior LG(O) O       &kp P     &super_key_behavior LS(LG(T)) LBKT
+&kp LC(C)                    &super_key_behavior LG(A) A      &kp S                          &super_key_behavior LG(D) D  &super_key_behavior LG(LS(F)) F  &kp G                            &kp H                           &kp J                             &kp K                           &kp L                             &kp SEMI  &kp SQT
+&kp RG(SPACE)                &super_key_behavior LG(LA(Z)) Z  &hold_tap_advanced LEFT_ALT X  &hold_tap_advanced LCTRL C   &hold_tap_advanced LEFT_SHIFT V  &hold_tap_advanced LEFT_GUI B    &hold_tap_advanced RIGHT_GUI N  &hold_tap_advanced RIGHT_SHIFT M  &hold_tap_advanced RCTRL COMMA  &hold_tap_advanced RIGHT_ALT DOT  &kp FSLH  &kp BSLH
+                                                                                             &mt LSHIFT DEL               &mt_advanced 4 SPACE             &lt 1 TAB                        &lt 3 ESC                       &lt 2 RET                         &mt RSHIFT BSPC
             >;
         };
 
         lower_layer {
             bindings = <
-&kp LG(P)  &none     &kp LG(F4)  &kp LG(TAB)  &kp LG(G)  &kp LG(S)  &none   &kp N7  &kp N8    &kp N9  &none    &none
-&kp LG(N)  &td_1_11  &td_2_12    &td_3_13     &td_4_14   &td_5_15   &none   &kp N4  &kp N5    &kp N6  &kp DOT  &none
-&kp LG(I)  &td_6_16  &td_7_17    &td_8_18     &td_9_19   &td_10_20  &none   &kp N1  &kp N2    &kp N3  &kp N0   &none
-                                  &lt 5 TAB    &trans     &trans     &trans  &trans  &kp BSPC
+&super_key_behavior LG(LC(P)) LG(P)  &none                                        &kp LG(F4)                                   &kp LG(TAB)                                  &super_key_behavior LG(LS(G)) LG(G)          &super_key_behavior LG(LS(S)) LG(S)          &none   &kp N7  &kp N8    &kp N9  &none    &none
+&super_key_behavior LG(LC(N)) LG(N)  &super_key_behavior LA(LC(KP_N1)) LC(KP_N1)  &super_key_behavior LC(LA(KP_N2)) LC(KP_N2)  &super_key_behavior LC(LA(KP_N3)) LC(KP_N3)  &super_key_behavior LC(LA(KP_N4)) LC(KP_N4)  &super_key_behavior LC(LA(KP_N5)) LC(KP_N5)  &none   &kp N4  &kp N5    &kp N6  &kp DOT  &none
+&super_key_behavior LG(LC(I)) LG(I)  &super_key_behavior LC(LA(KP_N6)) LC(KP_N6)  &super_key_behavior LC(LA(KP_N7)) LC(KP_N7)  &super_key_behavior LC(LA(KP_N8)) LC(KP_N8)  &super_key_behavior LA(LC(KP_N9)) LC(KP_N9)  &super_key_behavior LC(LA(KP_N0)) LC(KP_N0)  &none   &kp N1  &kp N2    &kp N3  &kp N0   &none
+                                                                                                                               &lt 5 TAB                                    &trans                                       &trans                                       &trans  &trans  &kp BSPC
             >;
         };
 
@@ -200,19 +220,19 @@
 
         adjust_layer {
             bindings = <
-&kp GRAVE  &none  &none  &none   &none           &kp LC(LA(F1))  &none     &none     &none      &none      &none       &kp K_VOLUME_UP
-&none      &none  &none  &none   &none           &kp LA(LC(F2))  &kp LEFT  &kp DOWN  &kp UP     &kp RIGHT  &kp K_NEXT  &kp K_PP
-&kp TILDE  &none  &none  &none   &kp LA(LC(F4))  &kp LA(LC(F3))  &none     &kp HOME  &kp END    &none      &kp K_PREV  &kp K_VOL_DN
-                                           &trans          &sk LGUI         &trans          &trans    &trans    &lt 5 TAB
+&kp GRAVE  &none                                                &none                                                &none                                                &none                                                &none                                                &none     &none     &none      &none      &none       &kp K_VOLUME_UP
+&none      &super_key_behavior LS(LA(LC(KP_N1))) LS(LC(KP_N1))  &super_key_behavior LS(LC(LA(KP_N2))) LS(LC(KP_N2))  &super_key_behavior LS(LA(LC(KP_N3))) LS(LC(KP_N3))  &super_key_behavior LS(LA(LC(KP_N4))) LS(LC(KP_N4))  &super_key_behavior LA(LC(LS(KP_N5))) LS(LC(KP_N5))  &kp LEFT  &kp DOWN  &kp UP     &kp RIGHT  &kp K_NEXT  &kp K_PP
+&kp TILDE  &super_key_behavior LS(LC(LA(KP_N6))) LS(LC(KP_N6))  &super_key_behavior LS(LA(LC(KP_N7))) LS(LC(KP_N7))  &super_key_behavior LS(LA(LC(KP_N8))) LS(LC(KP_N8))  &super_key_behavior LA(LC(LS(KP_N9))) LS(LC(KP_N9))  &super_key_behavior LA(LC(LS(KP_N0))) LS(LC(KP_N0))  &none     &kp HOME  &kp END    &none      &kp K_PREV  &kp K_VOL_DN
+                                                                                                                     &trans                                               &sk LGUI                                             &trans                                               &trans    &trans    &lt 5 TAB
             >;
         };
 
         macros {
             bindings = <
-&trans  &trans  &trans          &trans        &trans  &claude_resume  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &claude_status  &docker_comp  &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans          &trans        &trans  &trans          &trans  &trans  &trans  &trans  &trans  &trans
-                                &trans        &trans  &trans          &trans  &trans  &trans
+&kp ESCAPE  &none   &none           &kp UP_ARROW  &claude_resume  &kp BACKSPACE       &trans  &trans  &trans  &trans  &trans  &trans
+&kp F5      &kp F6  &kp LEFT_ARROW  &kp DOWN      &kp RIGHT       &kp ENTER           &trans  &trans  &trans  &trans  &trans  &trans
+&trans      &trans  &trans          &none         &trans          &kp LA(LEFT_ARROW)  &trans  &trans  &trans  &trans  &trans  &trans
+                                    &trans        &trans          &trans              &trans  &trans  &trans
             >;
         };
 
